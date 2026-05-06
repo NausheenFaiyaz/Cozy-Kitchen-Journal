@@ -1,0 +1,520 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Patrick+Hand&display=swap");
+
+:root {
+  --bg-main: #ffe6ef;
+  --bg-soft: #fff9f3;
+  --card-cream: #fff6eb;
+  --pink: #f9a8c4;
+  --pink-deep: #ef6f9d;
+  --mint: #c7f2dd;
+  --blue: #cfe9ff;
+  --lavender: #e5d8ff;
+  --yellow: #ffe8a6;
+  --text-main: #5f3f47;
+  --text-muted: #8d6071;
+  --border: #efc2d2;
+  --shadow: 0 12px 24px rgba(176, 105, 132, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: "Patrick Hand", "Segoe UI", sans-serif;
+  background:
+    linear-gradient(#f4c8d9 1px, transparent 1px) 0 0 / 26px 26px,
+    linear-gradient(90deg, #f4c8d9 1px, transparent 1px) 0 0 / 26px 26px,
+    linear-gradient(180deg, #ffe7f0 0%, #fff6f0 54%, #fff9f2 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  width: min(1220px, 93vw);
+  margin: 0 auto;
+  padding: 1.9rem 0 2.8rem;
+  position: relative;
+}
+
+.deco {
+  position: absolute;
+  border-radius: 999px;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.deco-heart {
+  width: 170px;
+  height: 170px;
+  right: 3%;
+  top: 1.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(255, 174, 202, 0.65),
+    transparent 62%
+  );
+}
+
+.deco-star {
+  width: 145px;
+  height: 145px;
+  left: 2%;
+  top: 7rem;
+  background: radial-gradient(
+    circle,
+    rgba(197, 230, 255, 0.7),
+    transparent 60%
+  );
+}
+
+.top-bar {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  padding: 1rem;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fff7fa, #fff2e6);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.top-bar h1 {
+  margin: 0.25rem 0 0.15rem;
+  font-family: "Baloo 2", sans-serif;
+  font-size: clamp(2rem, 4.3vw, 3.1rem);
+  font-family: "Patrick Hand", "Segoe UI", sans-serif;
+  line-height: 1;
+  color: #2d2d2d;
+  text-shadow: 2px 2px 0 #fff;
+}
+
+.subtitle {
+  max-width: 760px;
+  margin: 0.5rem auto 0;
+  font-size: 1.12rem;
+  color: #7f5765;
+}
+
+.status {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.status.error {
+  color: #c04063;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
+  gap: 3rem;
+}
+
+.meal-card {
+  background: #f7c1d2;
+  border: 2px dashed #4e4e4e;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 200ms ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-4px);
+}
+
+.meal-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 1.5px dotted #7f7f7f;
+}
+
+.meal-body {
+  padding: 1.35rem 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.meal-body h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  font-family: "Baloo 2", sans-serif;
+  letter-spacing: -0.02em;
+  color: #2d2d2d;
+}
+
+.area-pill {
+  margin: 0.65rem 0 0.7rem;
+  padding: 0.23rem 0.82rem;
+  border-radius: 999px;
+  background: #ffffffb8;
+  border: 1px solid #656565;
+  font-size: 1rem;
+  color: #2f2f2f;
+}
+
+.intro {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: "Baloo 2", sans-serif;
+  color: #2f2f2f;
+  line-height: 1.17;
+  max-width: 92%;
+  flex: 1;
+}
+
+button,
+.video-link {
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.meal-body button,
+.pagination button,
+.video-link {
+  color: #1f1f1f;
+  background: #fff;
+  border-radius: 999px;
+  border: 1px solid #606060;
+  box-shadow: none;
+}
+
+.meal-body button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.95rem;
+}
+
+.meal-body button:hover,
+.pagination button:hover,
+.video-link:hover {
+  transform: translateY(-2px);
+  background: #fff5f8;
+}
+
+.pagination {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.pagination span {
+  font-family: "Baloo 2", sans-serif;
+  color: #8b5670;
+  background: #fff3f7;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.35rem 0.72rem;
+}
+
+.pagination button {
+  padding: 0.5rem 0.9rem;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  transform: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(88, 59, 76, 0.42);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 50;
+  animation: fadeIn 240ms ease;
+}
+
+.recipe-modal {
+  width: min(940px, 95vw);
+  max-height: 93vh;
+  overflow: auto;
+  animation: popIn 300ms ease;
+}
+
+.close-btn {
+  position: sticky;
+  z-index: 2;
+  top: 12px;
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #fff;
+  color: #77535f;
+  border: 1.5px solid #886170;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(124, 86, 103, 0.22);
+}
+
+.recipe-paper {
+  margin-top: -20px;
+  background:
+    linear-gradient(#f8dbe6 1px, transparent 1px) 0 0 / 100% 23px,
+    linear-gradient(90deg, #f8dbe6 1px, transparent 1px) 0 0 / 23px 100%,
+    #fffdf8;
+  border: 2px dashed #838383;
+  border-radius: 28px;
+  padding: 1.1rem;
+  display: grid;
+  grid-template-columns: 0.95fr 1.2fr;
+  gap: 1rem;
+  box-shadow: 0 18px 34px rgba(103, 70, 84, 0.27);
+  position: relative;
+}
+
+.recipe-left,
+.recipe-right {
+  border: 1.5px solid #8b8b8b;
+  background: #fffefb;
+  border-radius: 18px;
+  padding: 0.95rem;
+}
+
+.recipe-left {
+  background: #f6c4d4;
+}
+
+.recipe-right {
+  background: #c2df9f;
+}
+
+.recipe-title-badge {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translateX(-50%);
+  padding: 0.24rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid #7b7b7b;
+  background: #b9deeb;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 1.02rem;
+  color: #2b2b2b;
+}
+
+.recipe-name {
+  margin: 0.05rem 0 0.6rem;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 1.65rem;
+  line-height: 1.1;
+  color: #2f2f2f;
+  text-align: center;
+}
+
+.modal-image {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1.5px solid #8b8b8b;
+  margin-bottom: 0.68rem;
+}
+
+.meta-box {
+  border: 1px dashed #797979;
+  border-radius: 12px;
+  background: #fffdfb;
+  padding: 0.56rem 0.68rem;
+}
+
+.meta-box p {
+  margin: 0.22rem 0;
+  font-size: 0.96rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.meta-box p span {
+  color: #5f5f5f;
+}
+
+.meta-box p strong {
+  color: #292929;
+  text-align: right;
+}
+
+.video-link {
+  display: block;
+  margin-top: 0.72rem;
+  padding: 0.56rem 0.8rem;
+  text-align: center;
+  width: 100%;
+  background: #b8dde7;
+}
+
+.section-pill {
+  margin: 0;
+  font-family: "Baloo 2", sans-serif;
+  color: #2d2d2d;
+  font-size: 1.05rem;
+  border: 1.5px solid #777;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  display: inline-block;
+}
+
+.ingredients-pill {
+  background: #b8dde7;
+}
+
+.directions-pill {
+  margin-top: 0.2rem;
+  background: #efb8ca;
+}
+
+.ingredients-list {
+  list-style: none;
+  margin: 0.62rem 0 0.95rem;
+  padding: 0;
+  border: 1.5px solid #7f7f7f;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffefb;
+}
+
+.ingredients-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.9rem;
+  padding: 0.45rem 0.65rem;
+  border-bottom: 1px dotted #8d8d8d;
+}
+
+.ingredients-list li:last-child {
+  border-bottom: none;
+}
+
+.ingredients-list li span:last-child {
+  font-family: "Baloo 2", sans-serif;
+  color: #323232;
+}
+
+.full-instructions {
+  margin: 0.62rem 0 0;
+  border: 1.5px solid #7f7f7f;
+  border-radius: 12px;
+  background:
+    linear-gradient(#f6ebcd 1px, transparent 1px) 0 0 / 100% 26px,
+    #fffef8;
+  padding: 0.62rem;
+  white-space: pre-wrap;
+  line-height: 1.62;
+  max-height: 250px;
+  overflow: auto;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 920px) {
+  .recipe-paper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    width: min(1220px, 96vw);
+  }
+
+  .top-bar {
+    padding: 0.85rem;
+  }
+
+  .meal-body h2 {
+    font-size: 2.2rem;
+  }
+
+  .modal-image {
+    height: 198px;
+  }
+
+  .meal-image {
+    height: 230px;
+  }
+
+  .intro {
+    font-size: 1.45rem;
+  }
+}
+
+.meal-card:nth-child(3n + 1) {
+  background: #efb8ca;
+}
+
+.meal-card:nth-child(3n + 2) {
+  background: #b8dde7;
+}
+
+.meal-card:nth-child(3n + 3) {
+  background: #c4d99a;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ecb4c4 #ffffff;
+}
+
+*::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ecb4c4;
+  border: 1px solid #6c6c6c;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #e8a7ba;
+}
